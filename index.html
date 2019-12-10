@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <title>AngularJS</title>
-    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="content/styles.css" rel="stylesheet" type="text/css" />
+    <script src="app\lib\angular.min.js"></script>
   </head>
-  <body>
-
+  <body ng-init="color='blue'"> <!-- it allows to initialize some data when application loads -->
+    <input type="text" ng-model="favFood" placeholder="enter your fav food"/>
+    <p>Your fav food is: {{favFood}}</p>
+    <p>{{ 5 * 5 }}</p>
+    <p class="{{color}}">Hello dude.</p>
   </body>
 </html>
