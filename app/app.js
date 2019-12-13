@@ -1,13 +1,23 @@
 // we have make this module myNinjaApp and this module will controls all the functionalities
-var myNinjaApp = angular.module('myNinjaApp', []);
+var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
 
 //config method is just a function that would be fire before your application runs, so any kind of preparation you need to do would go in here
 //things like routing
-myNinjaApp.config(function(){
+myNinjaApp.config(['$routeProvider', function( $routeProvider ){
 
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html'
+        })
+        .when( '/directory',{
+            templateUrl: 'views/directory.html',
+            controller: 'NinjaController'
+        })
+        .otherwise({
+            redirectTo: '/home'
+        });
 
-
-});
+}]);
 
 // this function fire when your application runs
 myNinjaApp.run(function(){
