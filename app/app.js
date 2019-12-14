@@ -1,5 +1,5 @@
 // we have make this module myNinjaApp and this module will controls all the functionalities
-var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
+var myNinjaApp = angular.module('myNinjaApp', ['ngRoute', 'ngAnimate']);
 
 //config method is just a function that would be fire before your application runs, so any kind of preparation you need to do would go in here
 //things like routing
@@ -65,6 +65,10 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http', function( $scope, $
         $scope.newNinja.belt = "";
         $scope.newNinja.rate = "";
 
+    };
+
+    $scope.removeAll = function(){
+        $scope.ninjas = [];
     }
 
     $http.get('data/ninjas.json').then(successCallback, errorCallback);
