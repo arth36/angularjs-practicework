@@ -16,7 +16,11 @@ myNinjaApp.config(['$routeProvider', function( $routeProvider ){
         })
         .when( '/contact',{
             templateUrl: 'views/contact.html',
-            controller: 'NinjaController'
+            controller: 'ContactController'
+        })
+        .when( '/contact-success',{
+            templateUrl: 'views/contact-success.html',
+            controller: 'ContactController'
         })
         .otherwise({
             redirectTo: '/home'
@@ -84,4 +88,10 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http', function( $scope, $
         console.log('Sorry no Data');
     }
 
+}]);
+
+myNinjaApp.controller('ContactController', ['$scope', '$location', function($scope, $location){
+    $scope.sendMessage = function(){
+        $location.path('/contact-success');
+    };
 }]);
