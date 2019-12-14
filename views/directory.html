@@ -3,9 +3,9 @@
     <p>Your fav food is: {{favFood}}</p>
     <p>{{ 5 * 5 }}</p>
     <p class="{{color}}">Hello dude.</p>
-    <div ng-init="ninjas=['yoshi', 'crystal', 'ryu', 'shaun']">
+    <div ng-init="ninjaArray=['yoshi', 'crystal', 'ryu', 'shaun']">
       <ul>
-        <li ng-repeat="ninja in ninjas"> {{ ninja }} </li>
+        <li ng-repeat="ninja in ninjaArray"> {{ ninja }} </li>
       </ul>
     </div>
     <div ng-controller="NinjaController">

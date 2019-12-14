@@ -27,7 +27,7 @@ myNinjaApp.run(function(){
 });
 
 //this is how we declare our controllers
-myNinjaApp.controller('NinjaController', ['$scope', function( $scope ){
+myNinjaApp.controller('NinjaController', ['$scope', '$http', function( $scope, $http ){
     $scope.message="Hey buddy!";
 
     $scope.removeNinja = function(ninja){
@@ -49,34 +49,13 @@ myNinjaApp.controller('NinjaController', ['$scope', function( $scope ){
 
     }
 
-    $scope.ninjas=[
-        {
-            name: "Yoshi",
-            belt: "green",
-            rate: 50,
-            available: true,
-            thumb: "content/img/yoshi.jpg"
-        },
-        {
-            name: "ryu",
-            belt: "black",
-            rate: 30,
-            available: true,
-            thumb: "content/img/ryu.png"
-        },
-        {
-            name: "crystal",
-            belt: "yellow",
-            rate: 10,
-            available: false,
-            thumb: "content/img/crystal.jpg"
-        },
-        {
-            name: "shaun",
-            belt: "orange",
-            rate: 20,
-            available: true,
-            thumb: "content/img/shaun.jpg"
-        }
-    ];
+    $http.get('data/ninjas.json').then(successCallback, errorCallback);
+
+    function successCallback(data){
+        $scope.ninjas = data.data;
+    }
+    function errorCallback(error){
+        console.log('Sorry no Data');
+    }
+
 }]);
