@@ -3,7 +3,9 @@ var myNinjaApp = angular.module('myNinjaApp', ['ngRoute', 'ngAnimate']);
 
 //config method is just a function that would be fire before your application runs, so any kind of preparation you need to do would go in here
 //things like routing
-myNinjaApp.config(['$routeProvider', function( $routeProvider ){
+myNinjaApp.config(['$routeProvider', '$locationProvider', function( $routeProvider, $locationProvider ){
+
+    $locationProvider.html5Mode(true);
 
     $routeProvider
         .when('/home', {
